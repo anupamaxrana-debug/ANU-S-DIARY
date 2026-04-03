@@ -1,0 +1,84 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(145deg, #f7f2fb, #ebf2ff); color: #2e1f4c; }
+.container { width: min(96%, 470px); margin: 42px auto; padding: 24px; background: #ffffffd8; border-radius: 14px; box-shadow: 0 14px 30px rgba(107, 84, 170, 0.16); }
+.login-card h1 { margin: 0 0 8px; font-size: 2rem; color: #6b2d99; }
+.login-card p { margin: 0 0 16px; color: #5e3d8e; }
+.form-group { margin-bottom: 14px; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 6px; }
+input[type='text'], input[type='password'], input[type='email'], input[type='tel'] { width: 100%; padding: 10px; border: 1px solid #d6c1ec; border-radius: 8px; background: #faf6ff; }
+.btn, .btn-secondary { border: 0; border-radius: 8px; padding: 10px 14px; font-weight: 700; cursor: pointer; }
+.btn { background: #8f3fa1; color: white; margin-right: 8px; }
+.btn-secondary { background: #6f3f8c; color: white; }
+.link-btn { background: none; border: none; color: #51337d; text-decoration: underline; cursor: pointer; padding: 0; margin-top: 8px; }
+.btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
+.error-message { min-height: 24px; margin: 8px 0; }
+.remember label { font-weight: 500; }
+@media (max-width: 640px) { .container { margin: 24px 10px; padding: 16px; } }
+
+.login-form h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #764ba2;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #5a6fd8;
+}
+
+.remember-group label {
+    color: #4a148c;
+    font-weight: bold;
+}
+
+.error-message {
+    color: #e53e3e;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#forgot-password-btn {
+    background: #d97706;
+}
+
+#forgot-password-btn:hover {
+    background: #b45309;
+}
+
+#register-btn {
+    background: #28a745;
+}
+
+#register-btn:hover {
+    background: #218838;
+}

@@ -1,0 +1,498 @@
+/* Diary Page Styles */
+body {
+    margin: 0;
+    color: #2f1d49;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f3e5f5 0%, #ce93d8 100%);
+}
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    background: #7b4eab;
+    color: #fff;
+    padding: 10px 16px;
+}
+.topbar button, .topbar select {
+    border-radius: 8px;
+    border: 0;
+    padding: 7px 12px;
+    cursor: pointer;
+}
+.topbar button { background: #8f5dbd; color: #fff; }
+.main-layout {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    height: calc(100vh - 68px);
+}
+.calendar-section, .editor-section {
+    border-radius: 12px;
+    background: rgba(255,255,255,.95);
+    border: 1px solid #bca4d2;
+    box-shadow: 0 10px 20px rgba(130, 88, 149, .18);
+}
+.calendar-section { width: 320px; overflow-y: auto; }
+.editor-section { flex: 1; display: flex; flex-direction: column; }
+#calendar { display: grid; gap: 10px; padding: 10px; }
+.month { border: 1px solid #d6b8eb; border-radius: 10px; padding: 8px; background: #fff; }
+.month-title { text-align: center; margin: 0 0 8px; font-weight: 700; }
+.month-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 4px; }
+.day-header, .day { text-align: center; font-size: .75rem; padding: 5px; }
+.day { background: #fef8ff; border: 1px solid #dbc0e3; border-radius: 6px; min-height: 30px; cursor: pointer; }
+.day:hover { background: #f2ecff; }
+.day.has-entry { background: #c8a0e8; color: #fff; }
+.day.today { background: #a064d0; color: #fff; }
+.day.selected { box-shadow: inset 0 0 0 2px #7b39a2; background: #8e44ad; color: #fff; }
+.editor-top { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.editor-top input { border-radius: 8px; border: 1px solid #d2b7e5; padding: 8px; }
+.toolbar { margin-bottom: 10px; display: flex; gap: 8px; }
+.toolbar button { border: 0; padding: 8px 10px; border-radius: 6px; background: #8f5dbd; color: white; cursor: pointer; }
+#editor { flex: 1; min-height: 320px; border: 1px solid #d2b7e5; border-radius: 9px; padding: 10px; background: #fff; overflow-y: auto; }
+.settings-panel { position: fixed; top: 72px; left: 14px; width: min(280px, 90vw); background: #fff; border: 1px solid #d3a9e6; border-radius: 10px; padding: 12px; z-index: 999; display: none; }
+.settings-panel.active { display: block; }
+.settings-group { margin-bottom: 8px; }
+.settings-message { margin-top: 6px; min-height: 20px; }
+#save-btn { background: #6f3f93; }
+@media (max-width: 900px) {
+    .main-layout { flex-direction: column; height: auto; }
+    .calendar-section { width: 100%; height: 300px; }
+}
+
+.diary-header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px 30px;
+    box-shadow: 0 2px 10px rgba(186, 104, 200, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid #ba68c8;
+    position: relative;
+}
+
+.top-actions {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.user-info {
+    position: absolute;
+    right: 20px;
+}
+
+.settings-btn {
+    background: #ab47bc;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.settings-btn:hover {
+    background: #9c27b0;
+}
+
+.settings-panel {
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    width: 280px;
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid #ce93d8;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    z-index: 1000;
+}
+
+.settings-panel h3 {
+    margin-top: 0;
+    color: #7b1fa2;
+}
+
+.settings-group {
+    margin-bottom: 10px;
+}
+
+.settings-group label {
+    display: block;
+    color: #4a148c;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.settings-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #e1bee7;
+    border-radius: 6px;
+}
+
+.settings-panel button {
+    width: 100%;
+    padding: 9px;
+    margin: 6px 0;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+}
+
+#change-password-btn {
+    background: #8e24aa;
+}
+
+#save-account-btn {
+    background: #6a1b9a;
+}
+
+#settings-close-btn {
+    background: #c2185b;
+}
+
+.settings-logout {
+    background: #e91e63;
+    margin-top: 6px;
+}
+
+.settings-logout:hover {
+    background: #c2185b;
+}
+
+.settings-message {
+    font-size: 0.9em;
+    min-height: 24px;
+    margin-bottom: 10px;
+    color: #4a148c;
+}
+
+.diary-header h1 {
+    color: #7b1fa2;
+    margin: 0;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-info span {
+    color: #4a148c;
+}
+
+#logout-btn {
+    padding: 8px 15px;
+    background: #e91e63;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#logout-btn:hover {
+    background: #c2185b;
+}
+
+.diary-container {
+    display: flex;
+    height: 100vh;
+}
+
+.calendar-section {
+    width: 30%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(186, 104, 200, 0.3);
+    overflow-y: auto;
+    border-right: 3px solid #ba68c8;
+    position: relative;
+}
+
+.calendar-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #ba68c8, #e1bee7, #ba68c8);
+}
+
+.calendar-section h2 {
+    text-align: center;
+    color: #7b1fa2;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+#calendar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.month {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(186, 104, 200, 0.2);
+    margin-bottom: 15px;
+    border: 1px solid #e1bee7;
+}
+
+.month-title {
+    text-align: center;
+    color: #7b1fa2;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.month-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.day-header {
+    text-align: center;
+    font-weight: bold;
+    color: #6a1b9a;
+    padding: 10px 0;
+    background: #f3e5f5;
+    border-radius: 5px;
+}
+
+.day {
+    aspect-ratio: 1;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 1px solid #e1bee7;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    color: #4a148c;
+}
+
+.day:hover {
+    background: #f8f5ff;
+    transform: scale(1.05);
+    box-shadow: 0 2px 5px rgba(186, 104, 200, 0.3);
+}
+
+.day.today {
+    background: #ba68c8;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(186, 104, 200, 0.5);
+}
+
+.day.selected {
+    background: #ab47bc;
+    color: white;
+    font-weight: bold;
+}
+
+.day.has-entry::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 6px;
+    height: 6px;
+    background: #8e24aa;
+    border-radius: 50%;
+}
+
+.theme-dark {
+    background: #1e1e2f;
+    color: #f0f0ff;
+}
+
+.theme-dark .diary-header,
+.theme-dark .calendar-section,
+.theme-dark .editor-section,
+.theme-dark .settings-panel {
+    background: rgba(25, 25, 45, 0.95);
+    border-color: #51357f;
+    color: #f0f0ff;
+}
+
+.theme-dark .entry-header input,
+.theme-dark .editor,
+.theme-dark .settings-group input,
+.theme-dark .month,
+.theme-dark .day {
+    background: #2c2c44;
+    color: #e3e3ff;
+    border-color: #5b4a95;
+}
+
+.theme-dark .day-header {
+    background: #3a315c;
+}
+
+.theme-sepia {
+    background: #f5e6d4;
+    color: #5f4020;
+}
+
+.theme-sepia .diary-header,
+.theme-sepia .calendar-section,
+.theme-sepia .editor-section,
+.theme-sepia .settings-panel {
+    background: rgba(249, 241, 228, 0.95);
+    border-color: #d2b193;
+    color: #5f4020;
+}
+
+.theme-sepia .entry-header input,
+.theme-sepia .editor,
+.theme-sepia .settings-group input,
+.theme-sepia .month,
+.theme-sepia .day {
+    background: #fff7ec;
+    color: #5f4020;
+    border-color: #d8b8a0;
+}
+
+.theme-sepia .day-header {
+    background: #e8d3be;
+}
+
+.theme-pastel {
+    background: #f0f6f8;
+    color: #3a3a45;
+}
+
+.theme-pastel .diary-header,
+.theme-pastel .calendar-section,
+.theme-pastel .editor-section,
+.theme-pastel .settings-panel {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: #a8d1c7;
+    color: #3a3a45;
+}
+
+.theme-pastel .entry-header input,
+.theme-pastel .editor,
+.theme-pastel .settings-group input,
+.theme-pastel .month,
+.theme-pastel .day {
+    background: #fefefe;
+    color: #3a3a45;
+    border-color: #a3d1d2;
+}
+
+.theme-pastel .day-header {
+    background: #d7eaf2;
+}
+
+.editor-section {
+    width: 70%;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    flex-direction: column;
+}
+
+.entry-header input {
+    padding: 10px;
+    border: 2px solid #e1bee7;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+    color: #4a148c;
+}
+
+.entry-header input:focus {
+    outline: none;
+    border-color: #ba68c8;
+}
+
+.editor {
+    flex: 1;
+    border: 2px solid #e1bee7;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 1.1em;
+    line-height: 1.6;
+    background: #faf5ff;
+    overflow-y: auto;
+    min-height: 400px;
+    transition: border-color 0.3s;
+    color: #4a148c;
+}
+
+.editor:focus {
+    outline: none;
+    border-color: #ba68c8;
+    background: #fff;
+}
+
+.toolbar {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.toolbar button {
+    padding: 10px 15px;
+    background: #ba68c8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.toolbar button i {
+    margin-right: 6px;
+}
+
+.toolbar button:hover {
+    background: #ab47bc;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(186, 104, 200, 0.3);
+}
+
+#save-btn {
+    background: #8e24aa;
+}
+
+#save-btn:hover {
+    background: #7b1fa2;
+}
+
+.day.selected {
+    background: #63b3ed;
+    color: white;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .diary-container {
+        flex-direction: column;
+    }
+    .calendar-section, .editor-section {
+        width: 100%;
+    }
+}

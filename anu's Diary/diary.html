@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anu's Diary</title>
+    <link rel="stylesheet" href="diary.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pTQ1oLjEJvQ1Felz1EzbFbqZ7Q8R6dEJzQ24DhpDL7XguvP7jek2F4Sg6qB1ap8lHXx2B+muQ7HClpcyx3YOkA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header class="diary-header">
+        <div class="top-actions">
+            <button id="settings-btn" class="settings-btn">⚙️ Settings</button>
+            <select id="theme-select" class="theme-select" aria-label="Select theme">
+                <option value="default">Light</option>
+                <option value="dark">Dark</option>
+                <option value="sepia">Sepia</option>
+                <option value="pastel">Pastel</option>
+            </select>
+        </div>
+        <h1>Anu's Diary</h1>
+    </header>
+
+    <div class="settings-panel" id="settings-panel" style="display: none;">
+        <h3>Account Settings</h3>
+        <p id="settings-message" class="settings-message"></p>
+        <div class="settings-group">
+            <label>Email</label>
+            <input type="email" id="settings-email" placeholder="Enter email" />
+        </div>
+        <div class="settings-group">
+            <label>Phone</label>
+            <input type="tel" id="settings-phone" placeholder="Enter phone" />
+        </div>
+        <div class="settings-group">
+            <label>Current Password</label>
+            <input type="password" id="settings-current-password" placeholder="Current password" />
+        </div>
+        <div class="settings-group">
+            <label>New Password</label>
+            <input type="password" id="settings-new-password" placeholder="New password" />
+        </div>
+        <button id="change-password-btn">Change Password</button>
+        <button id="save-account-btn">Save Contact Info</button>
+        <button id="logout-btn" class="settings-logout">Logout</button>
+        <button id="settings-close-btn" class="settings-close">Close</button>
+    </div>
+    <div class="diary-container">
+        <div class="calendar-section">
+            <h2>Calendar</h2>
+            <div id="calendar"></div>
+        </div>
+        <div class="editor-section">
+            <div class="entry-header">
+                <input type="date" id="entry-date">
+                <input type="time" id="entry-time">
+                <input type="text" id="entry-title" placeholder="Title">
+            </div>
+            <div class="editor" id="editor" contenteditable="true" placeholder="Write your diary entry here..."></div>
+            <div class="toolbar">
+                <button id="bold-btn"><i class="fa fa-bold"></i></button>
+                <button id="italic-btn"><i class="fa fa-italic"></i></button>
+                <button id="underline-btn"><i class="fa fa-underline"></i></button>
+                <button id="save-btn"><i class="fa fa-floppy-disk"></i> Save</button>
+            </div>
+        </div>
+    </div>
+    <script src="diary.js"></script>
+</body>
+</html>
